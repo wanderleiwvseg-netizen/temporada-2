@@ -1,1 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Contrato de Locação • Casa Temporada • Guarapari</title>
+  <!-- Fontes elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background: linear-gradient(145deg, #0b0c0e 0%, #1a1c20 100%);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      color: #2e2b26;
+    }
+
+    /* Cartão principal com efeito de papel luxuoso */
+    .contract-card {
+      max-width: 900px;
+      width: 100%;
+      background: #fcf9f2;
+      background-image: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 35%),
+                        linear-gradient(0deg, #f7f3e9 0%, #fffef7 100%);
+      border-radius: 2.5rem 2.5rem 2rem 2rem;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 2px rgba(212, 175, 55, 0.5), inset 0 0 30px rgba(255, 255, 240, 0.6);
+      padding: 2.8rem 2.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* Ornamento dourado superior */
+    .contract-card::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      right: 30px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #c9a84c 20%, #f5e7b3 50%, #c9a84c 80%, transparent 100%);
+      border-radius: 2px;
+    }
+
+    .contract-card::after {
+      content: "✦";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #c9a84c;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px #e6c468;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      text-align: center;
+      color: #3b3224;
+      margin-top: 0.5rem;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      line-height: 1.2;
+      border-bottom: 2px solid #c9a84c;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      color: #7a6a54;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #3b3224;
+      margin: 1.8rem 0 0.8rem 0;
+      border-left: 6px solid #c9a84c;
+      padding-left: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .static-info {
+      background: rgba(250, 246, 237, 0.9);
+      border: 1px dashed #c9a84c;
+      border-radius: 20px;
+      padding: 1.2rem 1.8rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      color: #3e372a;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+    }
+
+    .static-info p {
+      margin: 0.4rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .static-info strong {
+      width: 100px;
+      font-weight: 600;
+      color: #5a4a33;
+      letter-spacing: 0.3px;
+    }
+
+    .field-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .field-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-weight: 500;
+      color: #3b3224;
+      font-size: 0.85rem;
+      letter-spacing: 0.4px;
+      margin-right: 0.2rem;
+    }
+
+    input, select, textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 2px dotted #b7a17c;
+      padding: 0.5rem 0.2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      color: #1f1b14;
+      background: rgba(255,255,245,0.5);
+      transition: all 0.2s;
+      border-radius: 4px 4px 0 0;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-bottom: 2px solid #c9a84c;
+      background: rgba(255,250,235,0.9);
+      box-shadow: 0 4px 10px rgba(201, 168, 76, 0.2);
+    }
+
+    input[type="number"] {
+      width: 80px;
+      text-align: center;
+    }
+
+    .short-input {
+      width: 130px;
+    }
+
+    .inline-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .inline-date select, .inline-date input {
+      width: auto;
+      min-width: 70px;
+    }
+
+    .clause {
+      margin: 1.2rem 0;
+      line-height: 1.7;
+      font-size: 0.92rem;
+      color: #2e2b26;
+    }
+
+    .clause p {
+      margin: 0.3rem 0;
+    }
+
+    .signature-area {
+      margin-top: 2.5rem;
+      border-top: 1px solid #dac292;
+      padding-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .testemunha-box {
+      flex: 1 1 250px;
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #1f1b14 0%, #2b261c 100%);
+      border: 2px solid #c9a84c;
+      color: #f5e7b3;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      padding: 1rem 2.5rem;
+      border-radius: 60px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin: 2.5rem auto 0.5rem auto;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.5), 0 0 20px rgba(201,168,76,0.4);
+      width: fit-content;
+    }
+
+    .btn-whatsapp i {
+      font-size: 1.8rem;
+      color: #25D366;
+      filter: drop-shadow(0 0 6px #25D366);
+    }
+
+    .btn-whatsapp:hover {
+      background: #2b261c;
+      border-color: #e6c468;
+      color: #fff6d5;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.7), 0 0 30px rgba(212,175,55,0.7);
+      transform: translateY(-2px);
+    }
+
+    .required-star {
+      color: #c9a84c;
+      margin-left: 2px;
+    }
+
+    @media (max-width: 600px) {
+      .contract-card {
+        padding: 1.8rem 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .static-info p {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contract-card">
+    <h1>CONTRATO DE LOCAÇÃO</h1>
+    <div class="subtitle">Casa para Temporada • Carnaval • Guarapari</div>
+
+    <!-- LOCADOR (fixo) -->
+    <div class="static-info">
+      <p><strong>LOCADOR</strong> <span style="font-weight:600;">WANDERLEI SALVADOR</span></p>
+      <p><strong>Qualificação</strong> RESPONSÁVEL PELO IMÓVEL</p>
+      <p><strong>Fone</strong> (27) 99508-8540</p>
+      <p><strong>CPF</strong> 031.675.916-33</p>
+    </div>
+
+    <!-- IMÓVEL (fixo) -->
+    <div class="static-info" style="margin-top:1.2rem;">
+      <p><strong>IMÓVEL</strong> Casa • Alameda Lucio Rocha de Almeida, nº 184</p>
+      <p><strong>Bairro</strong> Nova Guarapari (Guaibura) • Guarapari-ES • CEP 29200-270</p>
+    </div>
+
+    <form id="contractForm" onsubmit="return false;">
+      <!-- LOCATÁRIO -->
+      <div class="section-title">LOCATÁRIO</div>
+      <div class="field-row">
+        <label>Nome completo <span class="required-star">*</span></label>
+        <input type="text" id="locNome" placeholder="Nome do locatário" required class="short-input" style="width:250px;">
+      </div>
+      <div class="field-row">
+        <label>Qualificação <span class="required-star">*</span></label>
+        <input type="text" id="locQual" placeholder="Profissão / estado civil" required class="short-input" style="width:200px;">
+      </div>
+      <div class="field-row">
+        <label>Fone <span class="required-star">*</span></label>
+        <input type="text" id="locFone" placeholder="(DDD) 9xxxx-xxxx" required class="short-input">
+        <label style="margin-left:1rem;">CPF <span class="required-star">*</span></label>
+        <input type="text" id="locCpf" placeholder="000.000.000-00" required class="short-input">
+        <label style="margin-left:1rem;">RG <span class="required-star">*</span></label>
+        <input type="text" id="locRg" placeholder="UF-00.000.000" required class="short-input">
+      </div>
+      <div class="field-row">
+        <label>Endereço completo <span class="required-star">*</span></label>
+      </div>
+      <div class="field-row" style="gap:0.3rem;">
+        <input type="text" id="locRua" placeholder="Rua/Av." required style="width:220px;">
+        <label>Nº</label>
+        <input type="text" id="locNumero" placeholder="Nº" style="width:70px;">
+        <label>Apto</label>
+        <input type="text" id="locApto" placeholder="Apto" style="width:70px;">
+        <label>Bairro</label>
+        <input type="text" id="locBairro" placeholder="Bairro" required style="width:140px;">
+        <label>Cidade</label>
+        <input type="text" id="locCidade" placeholder="Cidade" required style="width:130px;">
+        <label>Estado</label>
+        <input type="text" id="locEstado" placeholder="UF" required style="width:60px;">
+      </div>
+
+      <!-- PRAZOS -->
+      <div class="section-title">PRAZO DA LOCAÇÃO</div>
+      <div class="clause">
+        <p><strong>Primeiro –</strong> O prazo do presente contrato é do 
+          <span class="inline-date">
+            <input type="number" id="startDay" min="1" max="31" placeholder="dd" required style="width:55px;">
+            de
+            <select id="startMonth" required>
+              <option value="">mês</option>
+              <option value="Janeiro">Janeiro</option><option value="Fevereiro">Fevereiro</option><option value="Março">Março</option>
+              <option value="Abril">Abril</option><option value="Maio">Maio</option><option value="Junho">Junho</option>
+              <option value="Julho">Julho</option><option value="Agosto">Agosto</option><option value="Setembro">Setembro</option>
+              <option value="Outubro">Outubro</option><option value="Novembro">Novembro</option><option value="Dezembro">Dezembro</option>
+            </select>
+            de
+            <input type="number" id="startYear" placeholder="aaaa" min="2025" max="2030" required style="width:75px;">
+          </span>, 
+          terminando no dia 
+          <span class="inline-date">
+            <input type="number" id="endDay" min="1" max="31" placeholder="dd" required style="width:55px;">
+            de
+            <select id="endMonth" required>
+              <option value="">mês</option>
+              <option value="Janeiro">Janeiro</option><option value="Fevereiro">Fevereiro</option><option value="Março">Março</option>
+              <option value="Abril">Abril</option><option value="Maio">Maio</option><option value="Junho">Junho</option>
+              <option value="Julho">Julho</option><option value="Agosto">Agosto</option><option value="Setembro">Setembro</option>
+              <option value="Outubro">Outubro</option><option value="Novembro">Novembro</option><option value="Dezembro">Dezembro</option>
+            </select>
+            de
+            <input type="number" id="endYear" placeholder="aaaa" min="2025" max="2030" required style="width:75px;">
+          </span>, 
+          data em que o LOCATÁRIO se obriga a desocupar o imóvel, restituindo-o ao LOCADOR em perfeito estado de conservação, conforme o recebeu.
+        </p>
+      </div>
+
+      <!-- CLÁUSULAS FIXAS (apenas exibição, exceto multa e ocupantes) -->
+      <div class="section-title">CLÁUSULAS CONTRATUAIS</div>
+      <div class="clause">
+        <p><strong>Segundo –</strong> O aluguel para o período é de R$ 4.000,00 (Quatro mil reais), mais R$200,00 (DUZENTOS REAIS) da faxina referente aos quatro dias de carnaval e será pago antecipadamente 50% do valor para reserva, no ato da assinatura do presente contrato será depositado o restante 50% 30 dias antes da entrada no imóvel.</p>
+        <p><strong>Terceiro –</strong> A casa segue as mesmas regras do aluguel de uma pousada ou hotel. Durante a noite é proibido bagunça, baderna, gritaria e qualquer volume de som que incomode os vizinhos...</p>
+        <p><strong>Quarto –</strong> Toda a bagagem e objetos pertencentes ao LOCATÁRIO deverão ser retirados no dia da desocupação...</p>
+        <p><strong>Quinto –</strong> O LOCATÁRIO se compromete a não deixar nenhum resíduo e/ou lixo no imóvel...</p>
+        <p><strong>Sexto –</strong> Fica o LOCADOR autorizado a vistoriar o imóvel sempre que julgar conveniente.</p>
+        <p><strong>Sétimo –</strong> Em garantia da locação, o locatário deposita a importância de R$500,00 (quinhentos reais)...</p>
+        <p><strong>Oitava –</strong> A presente locação destina-se exclusivamente para uso residencial do LOCATÁRIO e de 8 pessoas.</p>
+        <p><strong>Nono –</strong> Tudo o que for devido em razão deste contrato será cobrado em Processo Executivo...</p>
+      </div>
+
+      <!-- DÉCIMO (multa editável) -->
+      <div class="clause">
+        <p><strong>Décimo –</strong> Fica estipulada a multa de R$ 
+          <input type="number" id="multaValor" placeholder="valor" step="0.01" min="0" style="width:100px;" required> 
+          (<input type="text" id="multaExtenso" placeholder="valor por extenso" required style="width:200px;">), 
+          na qual incorrerá a parte que infringir qualquer uma das cláusulas...
+        </p>
+      </div>
+
+      <div class="clause">
+        <p><strong>Décimo Primeiro –</strong> Todos os acordos, transações e novações referentes ao presente Contrato só serão incorporados a ele quando por escrito.</p>
+        <p><strong>Décimo Segundo –</strong> Será cobrada uma taxa de R$180,00 (cento e oitenta reais) por pessoa que exceder o limite deste contrato. (A casa comporta no máximo 10 pessoas).</p>
+        <p><strong>Décimo Terceiro –</strong> O Locatário deverá usar o imóvel somente com a finalidade residencial para temporada...</p>
+        <p><strong>Décimo Quarto –</strong> Após limitado a quantidade de pessoas neste contrato e assinado, será cobrada a diária se acrescentada a mesma...</p>
+      </div>
+
+      <!-- DÉCIMO QUINTO (ocupantes e carros) -->
+      <div class="clause">
+        <p><strong>Décimo Quinto –</strong> Colocar neste contrato nome das pessoas que vão ocupar o imóvel, marca e placa dos veículos (garagem comporta apenas três carros).</p>
+        <div style="margin-top:0.8rem;">
+          <label><strong>Nomes dos ocupantes (um por linha) <span class="required-star">*</span></strong></label>
+          <textarea id="nomesOcupantes" rows="3" placeholder="Ex.: João Silva, Maria Souza..." required style="width:100%; resize:vertical;"></textarea>
+        </div>
+        <div style="margin-top:0.8rem;">
+          <label><strong>Carros (modelo e placa) <span class="required-star">*</span></strong></label>
+          <textarea id="carros" rows="2" placeholder="Ex.: Gol prata PLACA-1234, Onix branco PLACA-5678" required style="width:100%; resize:vertical;"></textarea>
+        </div>
+      </div>
+
+      <!-- ASSINATURAS E DATA -->
+      <div class="section-title">ENCERRAMENTO E ASSINATURAS</div>
+      <div class="clause">
+        <p>E, por estarem justas, contratadas, cientes e de acordo com todas as cláusulas e condições do presente Contrato, as partes por si, seus herdeiros e sucessores assinam este instrumento nas suas duas vias para um só efeito, na presença das testemunhas abaixo.</p>
+        <div class="field-row" style="margin-top:1rem;">
+          <label>Local <span class="required-star">*</span></label>
+          <input type="text" id="signCity" placeholder="Cidade" required style="width:150px;">
+          <span>, </span>
+          <input type="number" id="signDay" min="1" max="31" placeholder="dia" required style="width:70px;">
+          <span>de</span>
+          <select id="signMonth" required>
+            <option value="">mês</option>
+            <option value="Janeiro">Janeiro</option><option value="Fevereiro">Fevereiro</option><option value="Março">Março</option>
+            <option value="Abril">Abril</option><option value="Maio">Maio</option><option value="Junho">Junho</option>
+            <option value="Julho">Julho</option><option value="Agosto">Agosto</option><option value="Setembro">Setembro</option>
+            <option value="Outubro">Outubro</option><option value="Novembro">Novembro</option><option value="Dezembro">Dezembro</option>
+          </select>
+          <span>de</span>
+          <input type="number" id="signYear" placeholder="aaaa" min="2025" max="2030" required style="width:80px;">
+        </div>
+      </div>
+
+      <div class="signature-area">
+        <div><strong>LOCADOR:</strong> WANDERLEI SALVADOR</div>
+        <div><strong>LOCATÁRIO:</strong> <span id="previewLocatario"></span></div>
+      </div>
+
+      <div class="field-row" style="margin-top:2rem; justify-content:space-between;">
+        <div class="testemunha-box">
+          <label>Testemunha 1 – Nome <span class="required-star">*</span></label>
+          <input type="text" id="test1Nome" placeholder="Nome completo" required style="width:100%;">
+          <label style="margin-top:0.3rem;">RG <span class="required-star">*</span></label>
+          <input type="text" id="test1Rg" placeholder="RG" required style="width:100%;">
+        </div>
+        <div class="testemunha-box">
+          <label>Testemunha 2 – Nome <span class="required-star">*</span></label>
+          <input type="text" id="test2Nome" placeholder="Nome completo" required style="width:100%;">
+          <label style="margin-top:0.3rem;">RG <span class="required-star">*</span></label>
+          <input type="text" id="test2Rg" placeholder="RG" required style="width:100%;">
+        </div>
+      </div>
+
+      <!-- Botão de envio WhatsApp -->
+      <button type="button" id="sendWhatsAppBtn" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Enviar Contrato Preenchido via WhatsApp
+      </button>
+      <p style="text-align:center; font-size:0.75rem; color:#7a6a54; margin-top:0.5rem;">Ao clicar, o contrato completo será aberto no WhatsApp para envio ao número (27) 99508-8540</p>
+    </form>
+  </div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('contractForm');
+      const sendBtn = document.getElementById('sendWhatsAppBtn');
+
+      // Atualiza preview do nome do locatário
+      const locNomeInput = document.getElementById('locNome');
+      const previewLoc = document.getElementById('previewLocatario');
+      locNomeInput.addEventListener('input', function() {
+        previewLoc.textContent = this.value || '_________________________';
+      });
+
+      // Função para validar formulário e construir mensagem
+      function buildContractMessage() {
+        // Validação simples dos campos required
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return null;
+        }
+
+        // Coleta valores
+        const locNome = document.getElementById('locNome').value.trim();
+        const locQual = document.getElementById('locQual').value.trim();
+        const locFone = document.getElementById('locFone').value.trim();
+        const locCpf = document.getElementById('locCpf').value.trim();
+        const locRg = document.getElementById('locRg').value.trim();
+        const locRua = document.getElementById('locRua').value.trim();
+        const locNumero = document.getElementById('locNumero').value.trim();
+        const locApto = document.getElementById('locApto').value.trim();
+        const locBairro = document.getElementById('locBairro').value.trim();
+        const locCidade = document.getElementById('locCidade').value.trim();
+        const locEstado = document.getElementById('locEstado').value.trim();
+
+        // Endereço formatado
+        let enderecoCompleto = `${locRua}, nº ${locNumero || 'S/N'}`;
+        if (locApto) enderecoCompleto += `, apto ${locApto}`;
+        enderecoCompleto += `, ${locBairro}, ${locCidade}-${locEstado}`;
+
+        // Datas
+        const startDay = document.getElementById('startDay').value;
+        const startMonth = document.getElementById('startMonth').value;
+        const startYear = document.getElementById('startYear').value;
+        const endDay = document.getElementById('endDay').value;
+        const endMonth = document.getElementById('endMonth').value;
+        const endYear = document.getElementById('endYear').value;
+
+        // Multa
+        const multaValor = document.getElementById('multaValor').value;
+        const multaExtenso = document.getElementById('multaExtenso').value.trim();
+
+        // Ocupantes e carros
+        const nomesOcupantes = document.getElementById('nomesOcupantes').value.trim();
+        const carros = document.getElementById('carros').value.trim();
+
+        // Verifica quantidade de ocupantes (máximo 10)
+        const ocupantesArray = nomesOcupantes.split('\n').filter(n => n.trim() !== '');
+        if (ocupantesArray.length > 10) {
+          alert('A casa comporta no máximo 10 pessoas. Verifique a lista de ocupantes.');
+          return null;
+        }
+
+        // Data de assinatura
+        const signCity = document.getElementById('signCity').value.trim();
+        const signDay = document.getElementById('signDay').value;
+        const signMonth = document.getElementById('signMonth').value;
+        const signYear = document.getElementById('signYear').value;
+
+        // Testemunhas
+        const test1Nome = document.getElementById('test1Nome').value.trim();
+        const test1Rg = document.getElementById('test1Rg').value.trim();
+        const test2Nome = document.getElementById('test2Nome').value.trim();
+        const test2Rg = document.getElementById('test2Rg').value.trim();
+
+        // Monta o texto completo do contrato
+        const contractText = 
+`CONTRATO DE LOCAÇÃO CASA PARA TEMPORADA
+
+LOCADOR:
+Nome: WANDERLEI SALVADOR
+Qualificação: RESPONSÁVEL PELO IMÓVEL
+Fone: (27) 99508-8540
+CPF: 031.675.916-33
+
+LOCATÁRIO:
+Nome: ${locNome}
+Qualificação: ${locQual}
+Fone: ${locFone}
+CPF: ${locCpf}
+RG: ${locRg}
+Endereço: ${enderecoCompleto}
+
+IMÓVEL OBJETO DESTA LOCAÇÃO:
+Tipo: casa
+Endereço: Alameda Lucio Rocha de Almeida n° 184, Nova Guarapari (Guaibura), cidade Guarapari-ES, CEP:29200-270.
+
+CLÁUSULAS CONTRATUAIS:
+
+Primeiro: O prazo do presente contrato é do ${startDay} de ${startMonth} de ${startYear}, terminando no dia ${endDay} de ${endMonth} de ${endYear}, data em que o LOCATÁRIO se obriga a desocupar o imóvel, restituindo-o ao LOCADOR em perfeito estado de conservação, conforme o recebeu.
+
+Segundo: O aluguel para o período é de R$ 4.000,00 (Quatro mil reais), mais R$200,00 (DUZENTOS REAIS) DA FAXINA referente aos quatro dias de carnaval e será pago antecipadamente 50% do valor para reserva, no ato da assinatura do presente contrato será depositado o restante 50% 30 dias antes da entrada no imóvel.
+
+Terceiro: A casa segue as mesmas regras do aluguel de uma pousada ou hotel. Durante a noite é proibido, bagunça, baderna, gritaria e qualquer volume de som que incomode os vizinhos. Fica o LOCATÁRIO responsável por qualquer consequência ao desrespeito dessa normatização (utilização de aparelhos de som com volume que incomode os vizinhos), inclusive se ocorrer a solicitação de presença da autoridade policial por aqueles que se sentirem lesados nos seus direitos.
+
+Quarto: Toda a bagagem e objetos pertencentes ao LOCATÁRIO deverão ser retirados no dia da desocupação. Não se responsabilizando o proprietário do imóvel por nenhum objeto deixado no imóvel após o fim do período de locação.
+
+Quinto: Parágrafo único. O LOCATÁRIO se compromete a não deixar nenhum resíduo e/ou lixo no imóvel após o término da locação. Todos os resíduos/lixo deverão ser recolhidos em sacos de lixo e colocados dentro da lixeira que se encontra no estacionamento da casa. Os locais de alimentação cozinhas/churrasqueiras (fogões, pias, geladeiras) devem ser entregues limpos assim com os lixos das lixeiras dos banheiros devem ser recolhidos.
+
+Sexto: Fica o LOCADOR, por si ou por seus prepostos, autorizado a vistoriar o imóvel sempre que julgar conveniente.
+
+Sétimo: Em garantia da locação, o locatário deposita, neste ato, a importância de R$500,00 (quinhentos reais), que lhe será devolvida ao término do Contrato, para ressarcimento de eventuais prejuízos, como estragos causados ao imóvel e o não pagamento de tributos ou despesas referentes ao uso do imóvel.
+
+Oitava: A presente locação destina-se exclusivamente para o uso residencial do LOCATÁRIO e de 8 pessoas.
+
+Nono: Tudo o que for devido em razão deste contrato, será cobrado em Processo Executivo ou em ação apropriada, no foro da situação do imóvel, com renúncia de qualquer outro, por mais privilegiado que seja, correndo por conta da parte vencida, além do principal e da multa estipulada na Cláusula Décima, todas as despesas judiciais e extrajudiciais, mais 20% (VINTE POR CENTO) de honorários advocatícios.
+
+Décimo: Fica estipulada a multa de R$ ${multaValor} (${multaExtenso}), na qual incorrerá a parte que infringir qualquer uma das cláusulas deste contrato, ressalvada à parte inocente o direito de poder considerar simultaneamente rescindida a locação independentemente de qualquer outra formalidade judicial ou extrajudicial.
+
+Décimo Primeiro: Todos os acordos, transações e novações referentes ao presente Contrato só serão incorporados a ele quando por escrito.
+
+Décimo segundo: Será cobrado uma taxa de R$180,00 (cento e oitenta reais) por pessoa que exceder o limite deste contrato. (A casa comporta no máximo 10 pessoas).
+
+Décimo terceiro: O Locatário deverá usar o imóvel objeto deste Contrato, somente com a finalidade residencial para temporada, ficando proibido ao Locatário sublocá-lo ou usá-lo de forma diferente do previsto, salvo autorização expressa do Locador.
+
+Décimo quarto: Após limitado a quantidade de pessoas neste contrato e assinado, será cobrado a diária se acrescentada a mesma, mesmo sabendo que a quantidade máxima de ocupantes não foi atingida.
+
+Décimo quinto: Nomes dos ocupantes: ${nomesOcupantes.replace(/\n/g, ', ')}. Carros: ${carros.replace(/\n/g, ', ')}.
+
+E, por estarem justas, contratadas, cientes e de acordo com todas as cláusulas e condições do presente Contrato, as partes por si, seus herdeiros e sucessores assinam este instrumento nas suas duas vias para um só efeito, na presença das testemunhas abaixo.
+
+${signCity}, ${signDay} de ${signMonth} de ${signYear}.
+
+_________________________________________________
+LOCADOR: WANDERLEI SALVADOR
+
+_________________________________________________
+LOCATÁRIO: ${locNome}
+
+_________________________________________________
+TESTEMUNHA 1: ${test1Nome}, RG: ${test1Rg}
+
+_________________________________________________
+TESTEMUNHA 2: ${test2Nome}, RG: ${test2Rg}`;
+
+        return contractText;
+      }
+
+      // Enviar via WhatsApp
+      sendBtn.addEventListener('click', function() {
+        const textoContrato = buildContractMessage();
+        if (!textoContrato) return; // validação falhou
+
+        const numeroWhatsApp = '5527995088540'; // +55 27 99508-8540
+        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoContrato)}`;
+        window.open(url, '_blank');
+      });
+
+      // Opcional: preencher preview do locatário ao carregar
+      previewLoc.textContent = locNomeInput.value || '_________________________';
+    })();
+  </script>
+</body>
+</html>
